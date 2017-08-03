@@ -12,7 +12,12 @@ var FastTyping = function () {
     var name,
         lastState,
         level,
-        score;
+        gameStart,
+        gameEnd,
+        gameDuration,
+        score,
+        keyUpCount,
+        totalSpeed;
 
 
     // -------------------------------Register name logic--------------------------------------------
@@ -35,6 +40,9 @@ var FastTyping = function () {
         };
 
         function enableReg() {
+
+            keyUpCount = 0;
+            totalSpeed = 0;
 
             registerInput.keyup(function () {
                 if (registerInput.val().length >= 3) {
@@ -85,6 +93,7 @@ var FastTyping = function () {
             levelButton.click(function () {
 
                 level = $('input[name = gamePlay]:checked').val();
+                gameStart = Date.now();
                 changeState(STATE_GAME);
             })
 
@@ -114,7 +123,6 @@ var FastTyping = function () {
             userInput,
             userLevel = $('#user-level'),
             letterAppearance,
-            keyUpTime,
             timeAmount,
             isGolden;
 
@@ -161,8 +169,11 @@ var FastTyping = function () {
             lifeCount -= 1;
             $('#life').html(lifeCount);
 
-            if (lifeCount === 0)
+            if (lifeCount === 0) {
+                gameEnd = Date.now();
+                countGameTime();
                 changeState(STATE_END);
+            }
         }
 
         function enable() {
@@ -170,21 +181,30 @@ var FastTyping = function () {
                 function (e) {
 
                     if (e.key === letters[letterKey]) {
-                        updateScore()
+                        updateScore();
+                        countSpeed();
                     } else {
                         removeLife()
                     }
 
-                    keyUpTime = Date.now();
-
                     userInput = true;
                     changeLetter();
 
-                    timeAmount = (letterAppearance - keyUpTime);
-                    console.log(keyUpTime, letterAppearance, timeAmount);
-
                 }
             )
+        }
+
+        function countGameTime() {
+            gameDuration = (gameEnd - gameStart) * 0.001;
+            $('#game-duration').html(parseFloat(gameDuration).toFixed(2));
+        }
+
+        function countSpeed() {
+            timeAmount = Date.now() - letterAppearance;
+            totalSpeed += timeAmount;
+            keyUpCount++;
+
+            $('#time-amount').html(parseFloat(timeAmount * 0.001).toFixed(2));
         }
 
         function disable() {
@@ -214,11 +234,11 @@ var FastTyping = function () {
                 letterShow.removeClass('golden');
             }
             userInput = false;
-            timeOut = setTimeout(changeLetter, level * 1000);
             letterKey = Math.round(Math.random() * (letters.length - 1));
             letterShow.html(letters[letterKey]);
-
             letterAppearance = Date.now();
+
+            timeOut = setTimeout(changeLetter, level * 1000);
         }
 
 
@@ -234,6 +254,7 @@ var FastTyping = function () {
             view.removeClass('invisible');
             // console.log(score)
             $('#lastScore').html(score);
+            $('#average-duration').html(((totalSpeed / keyUpCount) * 0.001).toFixed(2));
         };
 
         this.hide = function () {

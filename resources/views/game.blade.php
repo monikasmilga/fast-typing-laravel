@@ -58,11 +58,14 @@
     <h2></h2>
     <div>Score: <span id="score">0</span></div>
     <div>Lives left: <span id="life">3</span></div>
+    <div>Typing speed: <span id="time-amount">0</span> seconds</div>
 </div>
 
 <div id="gameOver" class="invisible" >
     <h3> Game over</h3>
     <div>Your score is: <span id="lastScore"></span></div>
+    <div>Game duration: <span id="game-duration"></span> seconds</div>
+    <div>Average click speed: <span id="average-duration"></span> seconds</div>
     <button id="playAgain" class="btn btn-secondary btn-lg active">Play again</button>
 </div>
 
