@@ -9,8 +9,6 @@ class FTScore extends Model {
 
 	protected $fillable = ['id', 'name', 'level', 'score', 'duration', 'speed'];
 
-	public $incrementing = false;
-
 	use UuidTrait;
 
 	use SoftDeletes;

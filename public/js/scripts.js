@@ -19,6 +19,10 @@ var FastTyping = function () {
         keyUpCount,
         totalSpeed;
 
+    this.setSaveURL = function (value) {
+        saveURL = value;
+    };
+
 
     // -------------------------------Register name logic--------------------------------------------
 
@@ -40,6 +44,8 @@ var FastTyping = function () {
         };
 
         function enableReg() {
+
+
 
             keyUpCount = 0;
             totalSpeed = 0;
@@ -177,6 +183,7 @@ var FastTyping = function () {
         }
 
         function enable() {
+
             $(window).keyup(
                 function (e) {
 
@@ -203,6 +210,7 @@ var FastTyping = function () {
             timeAmount = Date.now() - letterAppearance;
             totalSpeed += timeAmount;
             keyUpCount++;
+            console.log(keyUpCount);
 
             $('#time-amount').html(parseFloat(timeAmount * 0.001).toFixed(2));
         }
@@ -241,7 +249,6 @@ var FastTyping = function () {
             timeOut = setTimeout(changeLetter, level * 1000);
         }
 
-
     };
 
     var game = new GameLogic();
@@ -252,10 +259,26 @@ var FastTyping = function () {
 
         this.show = function () {
             view.removeClass('invisible');
-            // console.log(score)
             $('#lastScore').html(score);
             $('#average-duration').html(((totalSpeed / keyUpCount) * 0.001).toFixed(2));
+
+            saveData();
         };
+
+        function saveData() {
+            $.ajax({
+                url: saveURL,
+                method: "POST",
+                data: {
+                    name: name,
+                    level: level,
+                    score: score,
+                    duration: gameDuration,
+                    speed: ((totalSpeed / keyUpCount) * 0.001).toFixed(2)
+                }
+            })
+        }
+
 
         this.hide = function () {
             view.addClass("invisible");
@@ -268,9 +291,7 @@ var FastTyping = function () {
         });
 
         function disable() {
-            // name = '';
-            // score = 0;
-            // level = null;
+
 
         }
     };

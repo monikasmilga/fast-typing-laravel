@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('game');
 });
 
-Route::get('/score', ['as' => 'app.score.index', 'uses' => 'FTScoreController@index']);
+Route::post('/', ['as' => 'app.score.store', 'uses' => 'FTScoreController@store']);
