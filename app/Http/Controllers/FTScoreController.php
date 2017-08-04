@@ -15,7 +15,11 @@ class FTScoreController extends Controller
      */
     public function index()
     {
-        //
+        $config['level3list'] = FTScore::where('level', '3')->orderBy('score', 'desc')->get()->toArray();
+        $config['level6list'] = FTScore::where('level', '6')->orderBy('score', 'desc')->get()->toArray();
+        $config['level9list'] = FTScore::where('level', '9')->orderBy('score', 'desc')->get()->toArray();
+
+        return view('highscores', $config);
     }
 
     /**
@@ -26,7 +30,7 @@ class FTScoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('game');
     }
 
     /**

@@ -69,6 +69,7 @@
     <div>Game duration: <span id="game-duration"></span> seconds</div>
     <div>Average click speed: <span id="average-duration"></span> seconds</div>
     <button id="playAgain" class="btn btn-secondary btn-lg active">Play again</button>
+    <a href="{{route('app.score.index')}}"><button id="" class="btn btn-secondary btn-lg active"> Show scores</button></a>
 </div>
 
 

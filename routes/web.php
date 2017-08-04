@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('game');
-});
+//Route::get('/', function () {
+//    return view('game');
+//});
 
+Route::get('/', ['as' => 'app.score.create', 'uses' => 'FTScoreController@create']);
 Route::post('/', ['as' => 'app.score.store', 'uses' => 'FTScoreController@store']);
+
+Route::get('/highscores', ['as' => 'app.score.index', 'uses' => 'FTScoreController@index']);
