@@ -1,58 +1,61 @@
-/*#outer{*/
-/*position: absolute;*/
-/*margin: auto;*/
-/*top: 0;*/
-/*right: 0;*/
-/*bottom: 0;*/
-/*left: 0;*/
-/*height: 300px;*/
-/*width:500px;*/
-/*text-align: center;*/
-/*}*/
+body {
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.greeting {
+
+    text-align: center;
+    padding: 20px 5px;
+}
+
+#outer {
+    background-color: #c2d7f6;
+    border: solid 2px lightsteelblue;
+    border-radius: 15px;
+    height: 400px;
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+    padding: 10px 5px;
+
+}
 
 #register {
-    margin: auto;
     border-radius: 10px;
-    background-color: #789eb4;
-    height: 300px;
+    padding: 50px;
     width: 500px;
-
     display: table-cell;
     vertical-align: middle;
 }
 
 #selectLevel {
-    margin: auto;
-    border-radius: 10px;
-    background-color: #998fb4;
-    height: 300px;
-    width: 500px;
+    margin-top: -180px;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 #game {
-    margin: auto;
-    border-radius: 10px;
-    background-color: #95b47d;
-    height: 300px;
-    width: 500px;
+    margin-top: -130px;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 #gameOver {
-    margin: auto;
-    border-radius: 10px;
-    background-color: #b49f79;
-    height: 300px;
-    width: 500px;
+    margin-top: -150px;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
 }
-.golden{
+
+.wide-button {
+    width: 200px;
+    margin: 20px 5px;
+}
+
+.golden {
     color: yellow;
 }

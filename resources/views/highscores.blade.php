@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/highscores.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>High scores</title>
 </head>
 <body>
@@ -28,7 +28,6 @@
 
             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div class="card-block">
-                    LENTELE SU DUOMENIMIS IS 3 LYGIO
                     <table class="table-bordered">
                         <tr>
                             <th>NAME</th>
@@ -60,7 +59,6 @@
             </a>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">
-                    LENTELE SU DUOMENIMIS IS 6 LYGIO
 
                     <table class="table-bordered">
                         <tr>
@@ -94,7 +92,6 @@
             </a>
             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
                 <div class="card-block">
-                    LENTELE SU DUOMENIMIS IS 9 LYGIO
 
                     <table class="table-bordered">
                         <tr>
@@ -118,7 +115,7 @@
             </div>
         </div>
     </div>
-    <div style="text-align: center"><a href="{{route('app.score.create')}}"><button id="" class="btn btn-secondary btn-lg active">Play again</button></a></div>
+    <div style="text-align: center"><a href="{{route('app.score.create')}}"><button class="btn btn-secondary btn-lg active wide-button">Play again</button></a></div>
 
 </div>
 
