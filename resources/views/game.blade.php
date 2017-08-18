@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 
-    <title>Fast typing</title>
+    <title>Fast typing game</title>
 </head>
 <body>
 
@@ -24,6 +24,10 @@
                    aria-describedby="basic-addon1">
             <button id='register-button' class="btn btn-secondary" type="button" disabled value="true">Lets play!
             </button>
+
+        </div>
+        <div>
+            Random letters will appear on the screen. Your goal is to type correctly as many letter as you can. One correct letter gives you 1 point. Golden letters give 5 points. Each 20 points you get 1 extra life. If you misstype, you loose 1 life. Good luck!
         </div>
     </div>
 

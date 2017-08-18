@@ -128,13 +128,4 @@
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
 <script src="js/highscores.js"></script>
-<script>
-
-    //    $.ajaxSetup({
-    //        headers: {
-    //            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //        }
-    //    });
-
-</script>
 </html>

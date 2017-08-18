@@ -37,12 +37,12 @@ body {
 }
 
 #selectLevel {
-    margin-top: -180px;
+    margin-top: -270px;
     text-align: center;
 }
 
 #game {
-    margin-top: -130px;
+    margin-top: -150px;
     text-align: center;
 }
 
@@ -51,11 +51,29 @@ body {
     text-align: center;
 }
 
+.btn, .form-control {
+    font-family: 'Bree Serif', serif;
+}
+
 .wide-button {
     width: 200px;
     margin: 20px 5px;
 }
 
 .golden {
-    color: yellow;
+    color: #f1cc00;
 }
+
+.card-header {
+    background-color: #B0C4DE;
+}
+
+.card-block {
+    background-color: #c2d7f6;
+    padding-left: 22rem;
+}
+
+.card {
+    text-align: center;
+}
+
