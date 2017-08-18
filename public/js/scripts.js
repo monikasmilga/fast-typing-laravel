@@ -45,11 +45,10 @@ var FastTyping = function () {
 
         function enableReg() {
 
-
-
             keyUpCount = 0;
             totalSpeed = 0;
 
+            // requires to insert at least 3 characters in registration field
             registerInput.keyup(function () {
                 if (registerInput.val().length >= 3) {
                     registerButton.attr('disabled', false)
@@ -96,6 +95,7 @@ var FastTyping = function () {
 
         function enableLevel() {
 
+            // sets game level and typing time speed
             levelButton.click(function () {
 
                 level = $('input[name = gamePlay]:checked').val();
@@ -111,8 +111,6 @@ var FastTyping = function () {
             // level = $('input[name = gamePlay]').val('');
         }
     };
-
-    //TODO: reset radio box value
 
     var levelSelect = new LevelLogic();
 
@@ -134,6 +132,7 @@ var FastTyping = function () {
 
 
         this.show = function () {
+
             lifeCount = 3;
             $('#life').html(lifeCount);
             userInput = true;
@@ -149,8 +148,11 @@ var FastTyping = function () {
             disable();
         };
 
+
+        // counts score
         function updateScore() {
 
+            // adds extra 5 points for correct typing
             if (isGolden) {
                 isGolden = false;
                 for (i = 0; i < 5; i++) {
@@ -160,6 +162,7 @@ var FastTyping = function () {
                 score += 1;
             }
 
+            // adds extra life each 20 points
             if (score % 20 === 0) {
 
                 lifeCount += 1;
@@ -175,6 +178,8 @@ var FastTyping = function () {
             lifeCount -= 1;
             $('#life').html(lifeCount);
 
+
+            // stops game when no lives left
             if (lifeCount === 0) {
                 gameEnd = Date.now();
                 countGameTime();
@@ -187,6 +192,7 @@ var FastTyping = function () {
             $(window).keyup(
                 function (e) {
 
+                    // after user pushes button, triggers score and speed counting functions, or removes life
                     if (e.key === letters[letterKey]) {
                         updateScore();
                         countSpeed();
@@ -201,11 +207,13 @@ var FastTyping = function () {
             )
         }
 
+        // counts game duration
         function countGameTime() {
             gameDuration = (gameEnd - gameStart) * 0.001;
             $('#game-duration').html(parseFloat(gameDuration).toFixed(2));
         }
 
+        // counts correct typing speed: seconds between letter appearance and key press
         function countSpeed() {
             timeAmount = Date.now() - letterAppearance;
             totalSpeed += timeAmount;
@@ -233,6 +241,8 @@ var FastTyping = function () {
                 return;
 
             }
+
+            // randomly shows golden letters which add more points
             if (Math.random() < 0.1) {
                 isGolden = true;
                 letterShow.addClass('golden');
@@ -265,6 +275,7 @@ var FastTyping = function () {
             saveData();
         };
 
+        // sends score data to data base
         function saveData() {
             $.ajax({
                 url: saveURL,
@@ -291,7 +302,6 @@ var FastTyping = function () {
         });
 
         function disable() {
-
 
         }
     };
