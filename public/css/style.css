@@ -1,5 +1,5 @@
 body {
-    background: url('../images/background.jpg') no-repeat center center fixed;
+    background: url('../images/keyboard.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,13 +7,12 @@ body {
 }
 
 .greeting {
-
     text-align: center;
     padding: 20px 5px;
 }
 
 #outer {
-    background-color: #c2d7f6;
+    background-color: #a6d3f6;
     border: solid 2px lightsteelblue;
     border-radius: 15px;
     height: 400px;
@@ -25,19 +24,19 @@ body {
     text-align: center;
     font-family: 'Bree Serif', serif;
     padding: 10px 5px;
-
+    opacity: 0.9;
 }
 
 #register {
     border-radius: 10px;
-    padding: 50px;
+    padding: 0px 20px;
     width: 500px;
     display: table-cell;
     vertical-align: middle;
 }
 
 #selectLevel {
-    margin-top: -270px;
+    margin-top: -200px;
     text-align: center;
 }
 
@@ -69,11 +68,13 @@ body {
 }
 
 .card-block {
-    background-color: #c2d7f6;
+    background-color: #a6d3f6;
     padding-left: 22rem;
 }
 
 .card {
     text-align: center;
+    opacity: 0.9;
+
 }
 
